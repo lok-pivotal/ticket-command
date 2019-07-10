@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: ticket-cmd
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+
+  cloud:
+    stream:
+      bindings:
+        command-sub:
+          destination: queue.campaign.command
+          group: ticket-cmd
+#          binder: local_rabbit
+        domain-pub:
+          destination: queue.campaign.domain
+#          binder: local_rabbit
+#      binders:
+#        local_rabbit:
+#          type: rabbit
+#          environment:
+#            spring:
+#              rabbitmq:
+#                host: localhost
+#                port: 5672
+#                username: guest
+#                password: guest
+#                virtual-host: /
