@@ -10,7 +10,6 @@ public interface PubSubChannels {
 
     public final String COMMAND_SUB = "command-sub";
     public final String DOMAIN_PUB = "domain-pub";
-    public final String DOMAIN_SUB = "domain-sub";
 
     @Input(COMMAND_SUB)
     SubscribableChannel commandSub();
